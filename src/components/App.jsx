@@ -1,7 +1,7 @@
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.throttled = _.throttle(this.props.searchYouTube, 501);
+    this.throttled = _.debounce(this.props.searchYouTube, 500);
 
     this.state = {
       playlist: window.exampleVideoData,
@@ -12,7 +12,7 @@ class App extends React.Component {
   componentDidMount() {
     this.props.searchYouTube({
       key: window.YOUTUBE_API_KEY,
-      query: 'cats',
+      query: 'React tutorial',
       max: 10
     }, this.rerender.bind(this));
   }
