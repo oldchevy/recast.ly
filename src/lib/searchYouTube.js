@@ -1,4 +1,6 @@
 var searchYouTube = (options, callback) => {
+
+  //Note: we need to restrict queries to just video types, not channels and playlists
   $.ajax({
     url: 'https://www.googleapis.com/youtube/v3/search',
     method: 'GET',
@@ -6,11 +8,10 @@ var searchYouTube = (options, callback) => {
       key: options.key,
       part: 'snippet',
       q: options.query,
-      maxResults: options.max
+      maxResults: options.max,
+      type: 'video'
     },
     success: function(data) { 
-      console.log(Object.keys(window.exampleVideoData).length);
-      console.log(Object.keys(data.items).length); 
       callback(data.items);
     },
     error: (error) => console.log('An error occurred!: ', error)
