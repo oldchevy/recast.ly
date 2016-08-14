@@ -1,8 +1,10 @@
-var VideoList = (props) => {
-  return ( <div className="video-list media"> 
-    { props.videos.map((video) => ( <VideoListEntry video={video} clicked={props.clicked}/>)) }
+//We are using ES6 destructuring to assign each key in props a name ahead of time
+var VideoList = ({videos, songTitleClick}) =>
+
+  //Map is very useful here! It can be used to return VideoListEntries for any given number of videos given to it
+  ( <div className="video-list media"> 
+    { videos.map((video) => ( <VideoListEntry video={video} songTitleClick={songTitleClick}/>)) }
   </div> );
-};
 
 // PropTypes tell other developers what `props` a component expects
 // Warnings will be shown in the console when the defined rules are violated

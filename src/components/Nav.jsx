@@ -1,7 +1,8 @@
-var Nav = (props) => (
+//Below is an example of ES6 object destructuring
+var Nav = ({repopulatePlaylist, searchYouTube}) => (
   <nav className="navbar">
     <div className="col-md-6 col-md-offset-3">
-      <Search rerender={props.rerender} searchYouTube={props.searchYouTube} />
+      <Search repopulatePlaylist={repopulatePlaylist} searchYouTube={searchYouTube} />
     </div>
   </nav>
 );
